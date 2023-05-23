@@ -14,15 +14,11 @@ use App\Models\Equipment;
 |
 */
 
-Route::get('/test', function () {
-   return view('layout.main');
-});
 
-//TODO: Нереально заверстать странички хотя бы чуть чуть...
 
 //Страница авторизации
-Route::get('/login', [\App\Http\Controllers\UserController::class, 'index']);
-Route::post('/login', [\App\Http\Controllers\UserController::class, 'login'])->name('login');
+Route::get('/', [\App\Http\Controllers\UserController::class, 'index']);
+Route::post('/', [\App\Http\Controllers\UserController::class, 'login'])->name('login');
 
 //Middleware на проверку авторизации
 Route::middleware('auth')->group(function () {

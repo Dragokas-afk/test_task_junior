@@ -5,7 +5,7 @@ You need to insert this to Git Bash console:
 ```
 git clone https://github.com/Dragokas-afk/test_task_junior.git
 ```
-Need to change configuration file '.env'
+Need to change configuration file '.env' and create database in <b>phpMyAdmin</b>
 ```
 DB_CONNECTION=mysql
 DB_HOST={YOUR_HOST}
