@@ -14,19 +14,29 @@
         <div class="logo">
             <h1 class="logo_text">Test Task Junior</h1>
         </div>
+        @guest
+        <div class="nav_menu">
+            <a class="link" href="{{ route('login') }}">Войти</a>
+        </div>
+        @endguest
+        @auth
         @if(Auth::user()->isProvider())
             <div class="nav_menu">
                 <a class="link" href="{{ route('reportProvider') }}">Отчет поставщика</a>
                 <a class="link" href="{{ route('newEquipment') }}">Добавить новое оборудование</a>
+                <a class="link" href="{{ route('logout') }}">Выход</a>
             </div>
         @endif
         @if(Auth::user()->isManager())
             <div class="nav_menu">
                 <a class="link" href="{{ route('reportManager') }}">Отчет управляющего</a>
                 <a class="link" href="{{ route('replaceEquipment') }}">Переместить новое оборудование</a>
+                <a class="link" href="{{ route('logout') }}">Выход</a>
             </div>
         @endif
 
+
+        @endauth
     </div>
 </header>
 <main class="container">

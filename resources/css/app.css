@@ -82,9 +82,9 @@ label {
 .btn {
     padding: 14px 20px 14px 20px;
     border-radius: 30px;
-    border: none;
     color: black;
     font-size: 18px;
+    border: 2px navajowhite solid;
     background-color: navajowhite;
 }
 .btn:hover {
@@ -93,6 +93,26 @@ label {
     transition: .1s;
 }
 .btn:not(:hover) {
+    border: 2px navajowhite solid;
     background-color: navajowhite;
-    transition: .1s;
+    transition: .3s;
+}
+.search_wrapper {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+.equipmentList {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+
+}
+.equipmentListElements {
+    display: flex;
+    flex-direction: column;
 }

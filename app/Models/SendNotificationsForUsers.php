@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Notification;
 class SendNotificationsForUsers extends Model
 {
     use HasFactory;
-//TODO: Поменять уведомление на конкретного поставщика
+    //Отправка уведомления поставщикам после того как управляющий переместил оборудование
     public static function sendNotifyProvider($request)
     {
         $users = User::where('role', 'Provider')->get();
@@ -26,6 +26,7 @@ class SendNotificationsForUsers extends Model
             'Отправлено уведомление поставщикам. Отправил менеджер ' . Auth::id()
         );
     }
+    //Отправка уведомления управляющим после того как поставщик переместил оборудование
     public static function sendNotifyManager($request)
     {
         $users = User::where('role', 'Manager')->get();
@@ -38,21 +39,6 @@ class SendNotificationsForUsers extends Model
         );
     }
 
-    public function sendEmailToProvider($request)
-    {
 
-    }
-
-    public function sendEmailToManager($request)
-    {
-        $users = User::where('role', 'Manager')->get();
-        $message = 'add new equipment';
-        if ($request->addEquipment) {
-            Notification::send($users, new EmailToUsers($message));
-        }
-        Log::channel('daily')->info(
-            'Отправлено уведомление по почте управляющим. Отправил поставщик ' . Auth::id()
-        );
-    }
 
 }

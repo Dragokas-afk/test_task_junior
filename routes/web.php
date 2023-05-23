@@ -27,6 +27,8 @@ Route::post('/login', [\App\Http\Controllers\UserController::class, 'login'])->n
 //Middleware на проверку авторизации
 Route::middleware('auth')->group(function () {
 
+    Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+
     //Middleware на проверку поставщика
     Route::middleware('isProvider')->group(function () {
 

@@ -18,24 +18,17 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'login' => 'Provider',
-            'email' => 'olesya.nevskaya1@mail.ru',
+            'email' => 'test@mail.ru',
             'password' => '12345',
             'role' => 'Provider',
 
         ]);
         User::create([
             'login' => 'Manager',
-            'email' => 'serega.kuzovkin@gmail.com',
+            'email' => 'test1@gmail.com',
             'password' => '12345',
             'role' => 'Manager',
         ]);
-        User::create([
-            'login' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'password' => '12345',
-            'role' => 'admin',
-        ]);
-
 
         Stock::create([
 

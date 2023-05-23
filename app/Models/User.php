@@ -18,11 +18,11 @@ class User extends Authenticatable
         'login',
         'password',
     ];
-
+    //Проверка на роль пользователя для отображение соответствующих данных по роли
     public function isManager() {
         return $this->role === 'Manager';
     }
-
+//Проверка на роль пользователя для отображение соответствующих данных по роли
     public function isProvider() {
         return $this->role === 'Provider';
     }

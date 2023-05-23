@@ -26,8 +26,7 @@ class Equipment extends Model
         'manager_id'
     ];
 
-
-
+    //Запрос в базу данных на обновление, в связи с перемещением оборудования
     public static function replaceEquipment($request)
     {
 
@@ -43,8 +42,9 @@ class Equipment extends Model
             . ' Изменен статус на: Перемещен '
             . ' Переместил менеджер id: ' . Auth::id()
         );
-    }
 
+    }
+    //Запрос в базу данных на добавление нового оборудования
     public static function createEquipment($request)
     {
 
@@ -68,8 +68,9 @@ class Equipment extends Model
         );
 
         return true;
-    }
 
+    }
+    //Запрос в базу данных на получение полей независимо друг от друга
     public static function filterManager($created_at, $price_from, $price_to, $move_date)
     {
 
@@ -100,8 +101,9 @@ class Equipment extends Model
             'Применил фильтры менеджер id: ' . Auth::id()
         );
         return $result;
-    }
 
+    }
+    //Запрос в базу данных для получение всего перемещенного оборудования
     public static function searchManager($search)
     {
        $result = Equipment::where('status', 'Перемещен')

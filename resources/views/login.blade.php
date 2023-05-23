@@ -3,14 +3,19 @@
 @section('title', 'Кабинет менеджера')
 
 @section('content')
- <div class=""></div>
+
 <form method="post">
+    <h1 class="text_filter">Авторизация</h1>
     @csrf
-    <input type="text" name="login">
-    @error('login') {{ $message }} @enderror
-    <input type="password" name="password">
-    @error('password') {{ $message }} @enderror
-    <input type="submit">
+    <div  class="form_wrapper" style="gap: 10px;">
+        <input class="filter_form_input" type="text" placeholder="Логин:" name="login">
+        @error('login') {{ $message }} @enderror
+        <input class="filter_form_input" type="password" placeholder="Пароль:" name="password">
+        @error('password') {{ $message }} @enderror
+        <input class="btn" type="submit">
+    </div>
+    @csrf
+
 </form>
 
 @endsection

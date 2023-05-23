@@ -6,7 +6,10 @@
 
 @auth
     @if(Auth::user()->isManager())
+        <h1 class="text_filter">Новое оборудование</h1>
+        <div class="equipmentList">
         @foreach($newEquipmentList as $value)
+            <div class="equipmentListElements">
             <p>Полное наименование <b>{{$value->full_name}}</b></p>
             <p>Цена <b>{{$value->price}}</b></p>
             <p>Серийный номер <b>{{$value->series_number}}</b></p>
@@ -23,7 +26,9 @@
                 <input type="hidden" name="value_id" value="{{ $value->id }}">
                 <input type="submit" name="moveEquipment" value="Отправить">
             </form>
+        </div>
         @endforeach
+        </div>
         @if(session()->has('success'))
             {{ session()->get('success') }}
         @endif

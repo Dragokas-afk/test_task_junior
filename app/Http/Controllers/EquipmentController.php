@@ -11,30 +11,28 @@ use Illuminate\Support\Facades\Log;
 
 class EquipmentController extends Controller
 {
-    // TODO: Validation Filters
-// TODO: Normal Redirects
 
-
-    public function index()
+    //Страница с созданием нового оборудования
+    public function index(Request $request)
     {
         Log::channel('daily')->info(
-            'Пользователь перешел на страницу id: ' . Auth::id() . ' ' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']
+            'Пользователь перешел на страницу id: ' . Auth::id() . ' ' . $request->url()
         );
         return view('newEquipment');
 
     }
-
-    public function indexList()
+    //Страница с новым оборудованием
+    public function indexList(Request $request)
     {
         Log::channel('daily')->info(
-            'Пользователь перешел на страницу id: ' . Auth::id() . ' ' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']
+            'Пользователь перешел на страницу id: ' . Auth::id() . ' ' . $request->url()
         );
         return view('equipmentList', [
             'newEquipmentList' => Equipment::where('status', 'Новое')->get(),
             'stocks' => \App\Models\Stock::all()]);
 
     }
-
+    //Логика перемещения оборудования
     public function replaceEquipment(Request $request)
     {
 
@@ -44,9 +42,7 @@ class EquipmentController extends Controller
         return back()->with(['success' => 'Успешно перемещен']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    //Логика создания оборудования
     public function createEquipment(Request $request)
     {
 
